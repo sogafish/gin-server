@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>todo</title>
+  </head>
+  <body>
+    <form method="post" action="/detail/{{.todo.ID}}">
+      <input type="text" name="text" size="30" value="{{.todo.Text}}" >
+      <select name="status">
+        {{if eq .todo.Status "yet"}}
+          <option value="yet" selected>yet</option>
+          <option value="doing">doing</option>
+          <option value="done">done</option>
+        {{else if eq .todo.Status "doing"}}
+          <option value="yet">yet</option>
+          <option value="doing" selected>doing</option>
+          <option value="done">done</option>
+        {{else}}
+          <option value="yet">yet</option>
+          <option value="doing">doing</option>
+          <option value="done" selected>done</option>
+        {{end}}
+    </select>
+    <input type="submit" value="Send">
+  </form>
+  </body>
+</html>

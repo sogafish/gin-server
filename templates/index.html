@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
     <meta charset="utf-8">
     <title>gin title</title>
   </head>
   <body>
-    <h1>{{.data}}</h1>
+    <form method="post" action="/add">
+      <p>
+        <input type="text" name="text" size="30" placeholder="入力してください" >
+      </p>
+      <p>status
+        <select name="status">
+          <option value="yet">yet</option>
+          <option value="doing">doing</option>
+          <option value="done">done</option>
+        </select>
+      </p>
+      <p><input type="submit" value="Send"></p>
+    </form>
+    <ul>
+      {{ range .todos }}
+        <li>text: {{ .Text }}、status：{{ .Status }}
+            <label><a href="/detail/{{.ID}}">edit</a></label>
+            <label><a href="/delete_c/{{.ID}}">delete</a></label>
+        </li>
+      {{end}}
+    </ul>
   </body>
 </html>

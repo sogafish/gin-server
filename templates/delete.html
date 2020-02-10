@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>delete</title>
+  </head>
+  <body>
+    <p>delete</p>
+    <ul>
+      <li>{{.todo.Text}}</li>
+      <li>status: {{.todo.Status}}</li>
+      <li>date: {{.todo.CreatedAt}}</li>
+    </ul>
+    <form method="post" action="/delete/{{.todo.ID}}">
+      <p><input type="submit" value="delete"></p>
+      <p><a href="/">back</a></p>
+    </form>
+  </body>
+</html>
